@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">sahara</string>
+
+    <!--Register Screen-->
+    <string name="registerEmailField">E-mail Address</string>
+    <string name="registerPasswordField">Password</string>
+    <string name="profileButtonText">Set Up Profile</string>
+    <string name="hasAccountButtonText">Already have account? Sign In</string>
+
+</resources>
