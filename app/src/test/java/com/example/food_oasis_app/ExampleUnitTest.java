@@ -1,4 +1,4 @@
-package com.example.sahara;
+package com.example.food_oasis_app;
 
 import org.junit.Test;
 

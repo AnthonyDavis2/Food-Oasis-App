@@ -1,4 +1,4 @@
-package com.example.sahara;
+package com.example.food_oasis_app;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.sahara", appContext.getPackageName());
+        assertEquals("com.example.food_oasis_app", appContext.getPackageName());
     }
 }

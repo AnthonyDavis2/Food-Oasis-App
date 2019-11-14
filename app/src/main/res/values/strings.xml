@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">sahara</string>
+    <string name="app_name">Food-Oasis-App</string>
 
     <!--Register Screen-->
     <string name="registerEmailField">E-mail Address</string>
@@ -7,4 +7,10 @@
     <string name="profileButtonText">Set Up Profile</string>
     <string name="hasAccountButtonText">Already have account? Sign In</string>
 
+
+    <!--Login Screen-->
+    <string name="loginEmailField">E-mail Address</string>
+    <string name="loginPasswordField">Password</string>
+    <string name="loginButtonText">Log In</string>
+    <string name="registerButtonText">Register</string>
 </resources>

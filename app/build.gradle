@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.example.sahara"
+        applicationId "com.example.food_oasis_app"
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
@@ -27,5 +27,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.firebase:firebase-auth:9.2.0'
+
 }
 apply plugin: 'com.google.gms.google-services'
