@@ -39,17 +39,19 @@ public class LoginActivity extends AppCompatActivity {
     EditText userEmail, userPass;
     Button loginButton, registerButton;
     private FirebaseAuth mAuth;
-    ProgressBar loginProgressBar;
+    //ProgressBar loginProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        //ids are what we name our EditTexts in the xml
         userEmail = findViewById(R.id.userEmail);
         userPass = findViewById(R.id.userPass);
-        loginProgressBar = (ProgressBar) findViewById(R.id.loginProgressBar);
+        //loginProgressBar = (ProgressBar) findViewById(R.id.loginProgressBar);
 
+
+        //uses the firebase authentication object we created earlier
         mAuth = FirebaseAuth.getInstance();
 
         loginButton = (Button) findViewById(R.id.loginButton);
@@ -71,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser() {
+
+        //trim method eliminates leading and trailing spaces
         String email = userEmail.getText().toString().trim();
         String password = userPass.getText().toString().trim();
 
@@ -92,16 +96,16 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        loginProgressBar.setVisibility(View.INVISIBLE);
+        //loginProgressBar.setVisibility(View.INVISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                loginProgressBar.setVisibility(View.VISIBLE);
+                //loginProgressBar.setVisibility(View.VISIBLE);
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), VendorActivity.class));
-                    //startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    //startActivity(new Intent(getApplicationContext(), SetProfile.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Login unsuccessful. Please try again!", Toast.LENGTH_LONG).show();
                 }

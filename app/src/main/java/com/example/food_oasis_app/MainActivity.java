@@ -10,10 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import com.google.firebase.auth.AuthResult;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import android.content.Intent;
@@ -29,13 +29,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText newEmail, newPass;
+    EditText newEmail, newPass, confirmPass;
     Button signUpButton, hasAccountButton;
     private FirebaseAuth mAuth;
     ProgressBar signUpProgressBar;
@@ -47,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         newEmail = (EditText) findViewById(R.id.newEmail);
         newPass = (EditText) findViewById(R.id.newPass);
+        confirmPass = (EditText) findViewById(R.id.confirmPass);
+
         signUpProgressBar = (ProgressBar) findViewById(R.id.signUpProgressBar);
 
         mAuth = FirebaseAuth.getInstance();
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void registerUser(){
         String email = newEmail.getText().toString().trim();
         String password = newPass.getText().toString().trim();
+        String confirmPassword = confirmPass.getText().toString().trim();
 
         if (email.isEmpty()){
             newEmail.setError("Email field cannot be left blank");
@@ -99,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        if (!confirmPassword.equals(password)) {
+            confirmPass.setError("Passwords do not match.");
+            confirmPass.requestFocus();
+            return;
+        }
+
         signUpProgressBar.setVisibility(View.INVISIBLE);
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -107,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 signUpProgressBar.setVisibility(View.VISIBLE);
                 if (task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "User registration successful!", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                    startActivity(new Intent(getApplicationContext(), SetProfile.class));
                 }
                 else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
@@ -116,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Error occurred. Please try again!", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                        startActivity(new Intent(getApplicationContext(), VendorActivity.class));
                     }
                 }
             }
