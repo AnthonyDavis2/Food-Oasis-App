@@ -1,9 +1,7 @@
 package com.example.food_oasis_app;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,12 +11,13 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SetProfile extends AppCompatActivity {
 
     //private Firebase customerRef;
     //Firebase database;
-    DatabaseReference myRef;
+    // DatabaseReference myRef;
     Button loginButton;
     Button saveButton;
     EditText setBusinessName;
@@ -35,16 +34,17 @@ public class SetProfile extends AppCompatActivity {
             public void onClick(View v) {
                 setCustomer();
                 Toast.makeText(getApplicationContext(), "Saved successfully!", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
         });
 
-        loginButton = findViewById(R.id.loginButton);
+        /*loginButton = findViewById(R.id.loginButton);
         loginButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
-        });
+        });*/
 
     }
 
@@ -53,7 +53,7 @@ public class SetProfile extends AppCompatActivity {
 
         String firstName = "";
         String lastName = "";
-       String businessName = "";
+        String businessName = "";
         Log.d("***","Running 0");
 
         setBusinessName = findViewById(R.id.setBusinessName);
@@ -66,11 +66,15 @@ public class SetProfile extends AppCompatActivity {
         firstName = setFirstName.getText().toString();
         lastName = setLastName.getText().toString();
         businessName = setBusinessName.getText().toString();
-        SetCustomer customer1 = new SetCustomer(firstName, lastName, businessName);
+        String uuid =  UUID.getInstance().getuuid();
+        SetCustomer customer1 = new SetCustomer(firstName, lastName, businessName, uuid);
         //isplayName = setBusinessName.getText().toString();
 
-       //database = FirebaseDatabase.getInstance();
-        myRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://food-oasis-app.firebaseio.com/vendors");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("vendors");
+
+        //database = FirebaseDatabase.getInstance();
+        //myRef = FirebaseDatabase.getInstance().getReferenceFromUrl("https://food-oasis-app.firebaseio.com/vendors");
         myRef.push().setValue(customer1);
 
         //myRef.setValue("Hello, World!");
@@ -79,7 +83,7 @@ public class SetProfile extends AppCompatActivity {
         Log.d("***","Running A");
         //customerRef = new Firebase("https://food-oasis-app.firebaseio.com/vendors"); //something wrong here, not link
         Log.d("***","Running B");
-       //customerRef.push().setValue(new SetCustomer(firstName, lastName, displayName)); //something wrong here maybe
+        //customerRef.push().setValue(new SetCustomer(firstName, lastName, displayName)); //something wrong here maybe
     }
 
 }

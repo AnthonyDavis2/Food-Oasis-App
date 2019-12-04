@@ -1,6 +1,4 @@
 package com.example.food_oasis_app;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,30 +6,19 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import android.content.Intent;
+import com.google.firebase.auth.FirebaseUser;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 //import android.support.annotation.NonNull;
 //import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Patterns;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -98,18 +85,25 @@ public class LoginActivity extends AppCompatActivity {
 
         //loginProgressBar.setVisibility(View.INVISIBLE);
 
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                //loginProgressBar.setVisibility(View.VISIBLE);
                 if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    UUID.getInstance().setuuid(user.getUid());
                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), VendorActivity.class));
-                    //startActivity(new Intent(getApplicationContext(), SetProfile.class));
                 } else {
+                    // If sign in fails, display a message to the user.
                     Toast.makeText(getApplicationContext(), "Login unsuccessful. Please try again!", Toast.LENGTH_LONG).show();
                 }
+
+                // ...
             }
         });
+
     }
+
+
 }
