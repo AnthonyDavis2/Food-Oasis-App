@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.food_oasis_app">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -18,6 +19,12 @@
         <activity android:name=".MapActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+
+        <uses-library android:name="com.google.android.maps" />
+
         <activity android:name=".VendorActivity" />
         <activity android:name=".EditItems"/>
         <activity android:name=".UserOrVendor">

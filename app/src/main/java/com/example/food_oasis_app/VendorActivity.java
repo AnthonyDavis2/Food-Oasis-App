@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.widget.Button;
+
 public class VendorActivity extends AppCompatActivity {
 
     private TextView item1View, item2View, item3View, item4View, item5View;
@@ -32,7 +32,6 @@ public class VendorActivity extends AppCompatActivity {
     private ListView mListView;
     private String userID;
     ArrayList<VendorInformation> itemList = new ArrayList<>();
-    Button signOutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +41,10 @@ public class VendorActivity extends AppCompatActivity {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
-        userID = user.getUid();
-
-        signOutButton = findViewById(R.id.signOutButton2);
-        signOutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vendorSignOut();
-            }
-        });
-
+        UUID.getInstance().setuuid(user.getUid());
+        userID = mAuth.getUid();
 
         getKey();
-
 
     }
 
@@ -151,11 +141,7 @@ public class VendorActivity extends AppCompatActivity {
 
         startActivity(intent);
     }
-    public void vendorSignOut() {
-        UUID.getInstance().setVendorKey(null);
-        mAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-    }
+
 
 }
 

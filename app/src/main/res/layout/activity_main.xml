@@ -6,12 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="317dp"
+        android:layout_height="103dp"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/newEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.376" />
+
+    <TextView
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/newEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintVertical_bias="0.823" />
+
+
     <EditText
         android:id="@+id/newEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="220dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/registerEmailField"
@@ -21,12 +47,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/passTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/newPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newEmail"
+        app:layout_constraintVertical_bias="0.721" />
+
     <EditText
         android:id="@+id/newPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/registerPasswordField"
@@ -36,12 +76,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newEmail" />
 
+    <TextView
+        android:id="@+id/confirmPassTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password:"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPass"
+        app:layout_constraintVertical_bias="0.666" />
+
     <EditText
         android:id="@+id/confirmPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="84dp"
         android:layout_marginEnd="99dp"
         android:ems="10"
         android:hint="@string/confirmPasswordField"
@@ -55,42 +109,33 @@
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="132dp"
-        android:background="#0091EA"
+        android:background="#FF9800"
+        android:linksClickable="true"
         android:text="Register"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toEndOf="@+id/hasAccountButton"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/hasAccountButton"
-        app:layout_constraintTop_toBottomOf="@+id/newPass" />
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPass"
+        app:layout_constraintVertical_bias="0.279" />
 
     <Button
         android:id="@+id/hasAccountButton"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="78dp"
-        android:layout_marginLeft="78dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="79dp"
-        android:layout_marginRight="79dp"
-        android:background="#0091EA"
-        android:text="@string/hasAccountButtonText"
-        android:textColor="#fff"
+        android:autoLink="all"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:text="@string/regLoginButtonText"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpButton" />
-
-    <ProgressBar
-        android:id="@+id/signUpProgressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toStartOf="@+id/signUpButton"
-        app:layout_constraintTop_toBottomOf="@+id/newPass" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

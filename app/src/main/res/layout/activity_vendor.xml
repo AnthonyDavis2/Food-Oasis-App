@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".VendorActivity">
 
 
@@ -14,7 +15,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginLeft="28dp"
         android:layout_marginBottom="28dp"
-        android:background="#0091EA"
+        android:background="@color/colorOrange"
         android:onClick="addItemsbuttonClicked"
         android:text="Add items"
 
@@ -33,7 +34,7 @@
         android:layout_marginStart="220dp"
         android:layout_marginLeft="220dp"
         android:layout_marginBottom="28dp"
-        android:background="#0091EA"
+        android:background="@color/colorOrange"
         android:onClick="addItemsbuttonClicked"
         android:text="Sign Out"
 
@@ -50,9 +51,7 @@
         android:layout_height="51dp"
         android:layout_marginTop="4dp"
         android:text="Current Items: "
-
-        android:textColor="#0091EA"
-
+        android:textColor="@color/colorGreen"
         android:textSize="45dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

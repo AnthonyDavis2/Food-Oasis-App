@@ -63,7 +63,7 @@
         android:id="@+id/editButton"
         android:layout_width="93dp"
         android:layout_height="65dp"
-        android:background="#0091EA"
+        android:background="@color/colorOrange"
         android:text="Update"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"

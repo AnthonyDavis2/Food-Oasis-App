@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
         newEmail = (EditText) findViewById(R.id.newEmail);
         newPass = (EditText) findViewById(R.id.newPass);
         confirmPass = (EditText) findViewById(R.id.confirmPass);
-
-        signUpProgressBar = (ProgressBar) findViewById(R.id.signUpProgressBar);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -97,24 +96,23 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        signUpProgressBar.setVisibility(View.INVISIBLE);
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                signUpProgressBar.setVisibility(View.VISIBLE);
                 if (task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "User registration successful!", Toast.LENGTH_LONG).show();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    UUID.getInstance().setuuid(user.getUid());
                     startActivity(new Intent(getApplicationContext(), SetProfile.class));
                 }
                 else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
                         Toast.makeText(getApplicationContext(), "User is already registered", Toast.LENGTH_LONG).show();
-                        signUpProgressBar.setVisibility(View.INVISIBLE);
                     }
                     else {
                         Toast.makeText(getApplicationContext(), "Error occurred. Please try again!", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(), VendorActivity.class));
                     }
                 }
             }

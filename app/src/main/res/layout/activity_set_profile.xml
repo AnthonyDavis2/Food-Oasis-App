@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".SetProfile">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="317dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-2dp" />
 
     <EditText
         android:id="@+id/setBusinessName"
@@ -67,7 +80,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="156dp"
-        android:background="#0091EA"
+        android:background="#FF9800"
         android:text="@string/saveButtonText"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,20 +94,18 @@
         android:layout_width="257dp"
         android:layout_height="84dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="200dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Let's set up your profile!"
-        android:textColor="#0091EA"
-        android:textSize="35sp"
+        android:text="Please set your profile"
+        android:textColor="#8BC34A"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/setFirstName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <!--<Button
         android:id="@+id/loginButton"

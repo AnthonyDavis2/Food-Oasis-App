@@ -13,6 +13,7 @@
     <string name="loginEmailField">E-mail Address</string>
     <string name="loginPasswordField">Password</string>
     <string name="loginButtonText">Log In</string>
+    <string name="regLoginButtonText">Registered? Log In</string>
     <string name="registerButtonText">Register</string>
 
     <!--Vendor or User Screen -->
