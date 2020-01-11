@@ -7,10 +7,10 @@ Food Oasis in an Andriod Mobile Application targeting individuals in [food deser
 ## Screenshot
 <div class="row">
   <div class="column">
-    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194309_Food%20Oasis.jpg" width="200" height="400" />
+    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194309_Food%20Oasis.jpg" height="400" style="width:200%" />
   </div>
   <div class="column">
-    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194315_Food%20Oasis.jpg" width="200" height="400" />
+    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194315_Food%20Oasis.jpg" height="400" style="width:200%"/>
   </div>
 </div>
 
@@ -18,9 +18,9 @@ Food Oasis in an Andriod Mobile Application targeting individuals in [food deser
 
 <div class="row">
   <div class="column">
-    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194332_Food%20Oasis.jpg" width="200" height="400" />
+    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194332_Food%20Oasis.jpg" height="400" style="width:200%"/>
   </div>
   <div class="column">
-    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194436_Food%20Oasis.jpg" width="200" height="400" />
+    <img src="https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194436_Food%20Oasis.jpg" height="400" style="width:200%"/>
   </div>
 </div>
