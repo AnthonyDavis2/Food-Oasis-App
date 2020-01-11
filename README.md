@@ -6,4 +6,4 @@ Food Oasis in an Andriod Mobile Application targeting individuals in [food deser
 
 ## Screenshots
 
-![](https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194309_Food%20Oasis.jpg)
+![](https://github.com/Food-Oasis/Sahara-Repo/blob/master/Media%20and%20Figures/Screenshot_20200110-194309_Food%20Oasis.jpg | width=100)
